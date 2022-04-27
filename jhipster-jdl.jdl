@@ -1,0 +1,33 @@
+
+entity Beer {
+	name String
+    country String,
+    price Long,
+    description String
+}
+
+entity BeerCategory {
+	categoryName String
+}
+
+
+entity Manufactor {
+	name String
+}
+
+relationship ManyToOne {
+	Beer to BeerCategory,
+    Beer to Manufactor
+}
+
+// Set pagination options
+paginate BeerCategory with infinite-scroll
+paginate Beer with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+// angularSuffix * with mySuffix

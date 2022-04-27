@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20220427025940",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "manufactor",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Manufactor",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "beer",
+      "otherEntityRelationshipName": "manufactor",
+      "relationshipName": "beer",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

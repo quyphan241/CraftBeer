@@ -1,0 +1,89 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-beer-heading" data-cy="BeerCreateUpdateHeading">Create or edit a Beer</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_country">Country</label>
+          <input type="text" class="form-control" name="country" id="field_country" data-cy="country" formControlName="country" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_price">Price</label>
+          <input type="number" class="form-control" name="price" id="field_price" data-cy="price" formControlName="price" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_beerCategory">Beer Category</label>
+          <select class="form-control" id="field_beerCategory" data-cy="beerCategory" name="beerCategory" formControlName="beerCategory">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                beerCategoryOption.id === editForm.get('beerCategory')!.value?.id ? editForm.get('beerCategory')!.value : beerCategoryOption
+              "
+              *ngFor="let beerCategoryOption of beerCategoriesSharedCollection; trackBy: trackBeerCategoryById"
+            >
+              {{ beerCategoryOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_manufactor">Manufactor</label>
+          <select class="form-control" id="field_manufactor" data-cy="manufactor" name="manufactor" formControlName="manufactor">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                manufactorOption.id === editForm.get('manufactor')!.value?.id ? editForm.get('manufactor')!.value : manufactorOption
+              "
+              *ngFor="let manufactorOption of manufactorsSharedCollection; trackBy: trackManufactorById"
+            >
+              {{ manufactorOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

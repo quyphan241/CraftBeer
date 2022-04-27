@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "changelogDate": "20220427025938",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "beer",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Beer",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "beerCategory",
+      "otherEntityRelationshipName": "beer",
+      "relationshipName": "beerCategory",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "manufactor",
+      "otherEntityRelationshipName": "beer",
+      "relationshipName": "manufactor",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

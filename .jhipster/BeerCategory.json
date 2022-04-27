@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20220427025939",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "beer_category",
+  "fields": [
+    {
+      "fieldName": "categoryName",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "BeerCategory",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "beer",
+      "otherEntityRelationshipName": "beerCategory",
+      "relationshipName": "beer",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}
